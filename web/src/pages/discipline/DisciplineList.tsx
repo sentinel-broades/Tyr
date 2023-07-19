@@ -23,7 +23,13 @@ const DisciplineList = () => {
         {DisciplineState &&
           DisciplineState.disciplineList &&
           DisciplineState.disciplineList.map((discipline) => {
-            return <BasicCard key={discipline.id} title={discipline.name} />;
+            return (
+              <BasicCard
+                key={discipline.id}
+                id={discipline.id}
+                title={discipline.name}
+              />
+            );
           })}
       </CardContainer>
     </StyledDisciplineList>

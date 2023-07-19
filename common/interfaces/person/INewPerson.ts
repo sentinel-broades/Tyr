@@ -5,4 +5,4 @@ interface INewPerson {
   roleId: number;
 }
 
-export { INewPerson };
+export type { INewPerson };

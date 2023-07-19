@@ -3,6 +3,7 @@ import { StyledEditorForm } from './styled';
 import { Control } from '../../enums';
 import { FormText } from './FormText';
 import { IEditorItem } from '../../interfaces/editor';
+import { FormSelect } from './FormSelect';
 
 interface Props {
   object: any;
@@ -32,6 +33,18 @@ const EditorForm = (props: Props) => {
                 value={obj[item.key]}
                 placeholder={item.placeholder}
                 onChange={onObjChange}
+              />
+            );
+
+          case Control.Select:
+            return (
+              <FormSelect
+                key={item.key}
+                name={item.key}
+                label={item.label}
+                value={obj[item.key]}
+                onChange={onObjChange}
+                values={item.options!}
               />
             );
 

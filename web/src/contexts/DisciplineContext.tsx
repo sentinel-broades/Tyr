@@ -1,12 +1,14 @@
 import { IDiscipline, INewDiscipline } from '../../../common/interfaces';
 import { createContext, useContext, useState } from 'react';
-import { apiGet, apiPost, apiPut } from '../api';
+import { apiGet, apiPost } from '../api';
+import { IOption } from '../interfaces/editor/IOption';
 
 interface DisciplineProps {
   DisciplineState?: {
     disciplineList: IDiscipline[] | null;
   };
-  onList?: () => Promise<void>;
+  onList?: () => Promise<IDiscipline[]>;
+  onOptionsList?: () => Promise<IOption[]>;
   onCreate?: (discipline: INewDiscipline) => Promise<number>;
   onLoad?: (id: number) => void;
   onUpdate?: (discipline: IDiscipline) => void;
@@ -26,10 +28,23 @@ const DisciplineProvider = ({ children }: any) => {
   });
 
   const list = async () => {
-    apiGet('/disciplines').then((res) => {
+    return apiGet('/disciplines').then((res) => {
       setDisciplineState({ ...disciplineState, disciplineList: res });
+      return res;
     });
   };
+
+  const optionsList = async (): Promise<IOption[]> => {
+    return apiGet('/disciplines').then((res) => {
+      return res.map((discipline: IDiscipline) => {
+        return {
+          label: discipline.name,
+          key: discipline.id,
+        };
+      });
+    });
+  };
+
   const create = async (discipline: INewDiscipline): Promise<number> => {
     return await apiPost('/discipline', discipline);
   };
@@ -39,6 +54,7 @@ const DisciplineProvider = ({ children }: any) => {
   const value = {
     DisciplineState: disciplineState,
     onList: list,
+    onOptionsList: optionsList,
     onCreate: create,
     onLoad: load,
     onUpdate: update,

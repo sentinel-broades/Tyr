@@ -1,1 +1,1 @@
-export { INewPerson } from "./INewPerson";
+export type { INewPerson } from "./INewPerson";

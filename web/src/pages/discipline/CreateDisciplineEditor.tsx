@@ -1,32 +1,24 @@
 import { StyledCreateDisciplineEditor } from './styled';
-import { EditorForm } from '../../library';
+import { EditorForm, PageHeader } from '../../library';
 import { CreateDisciplineEditorConfig } from '../../editors';
-import { useState } from 'react';
 import { useDiscipline } from '../../contexts';
 import { INewDiscipline } from '../../../../common/interfaces';
 import { useNavigate } from 'react-router-dom';
 
 const CreateDisciplineEditor = () => {
   const navigate = useNavigate();
-  const [discipline, setDiscipline] = useState<INewDiscipline>({
-    name: '',
-    description: '',
-  });
   const { onCreate } = useDiscipline();
+  const discipline: INewDiscipline = { name: '', description: '' };
 
   const create = async (object: any) => {
-    console.log(object);
-
     if (!onCreate) return;
-
     const res = await onCreate(object);
-
     if (res) navigate('/discipline/list');
   };
 
   return (
     <StyledCreateDisciplineEditor>
-      <h1>Create Discipline</h1>
+      <PageHeader title='Create Discipline' />
       <EditorForm
         object={discipline}
         onSave={create}
