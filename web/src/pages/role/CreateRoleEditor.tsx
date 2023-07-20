@@ -6,6 +6,7 @@ import { EditorForm, PageHeader } from '../../library';
 import { useEffect, useState } from 'react';
 import { CreateRoleEditorConfig } from '../../editors';
 import { IEditorItem } from '../../interfaces/editor';
+import { EditorMode } from '../../enums';
 
 const CreateRoleEditor = () => {
   const navigate = useNavigate();
@@ -13,11 +14,11 @@ const CreateRoleEditor = () => {
   const role: INewRole = { name: '', description: '' };
   const [config, setConfig] = useState<IEditorItem[] | null>(null);
 
-  const { onOptionsList, DisciplineState } = useDiscipline();
+  const { onDisciplineOptionsList, DisciplineState } = useDiscipline();
   useEffect(() => {
     const list = async () => {
       const c = CreateRoleEditorConfig;
-      c[1].options = await onOptionsList!();
+      c[1].options = await onDisciplineOptionsList!();
       setConfig(c);
     };
 
@@ -36,7 +37,12 @@ const CreateRoleEditor = () => {
     <StyledCreateRoleEditor>
       <PageHeader title={'Create Role'} />
       {config ? (
-        <EditorForm object={role} onSave={create} items={config} />
+        <EditorForm
+          object={role}
+          onSave={create}
+          items={config}
+          mode={EditorMode.Edit}
+        />
       ) : (
         <>Loading</>
       )}

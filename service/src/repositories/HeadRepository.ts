@@ -1,12 +1,20 @@
-import { INewHead } from "../../../common/interfaces";
+import { IHead, INewHead } from "../../../common/interfaces";
 
 const dbManager = require("../database/dbManager");
 
-const getAll = async (squadId: number) => {
+const getAll = async (squadId: number): Promise<IHead[]> => {
   const client = await dbManager.connect();
   const { rows } = await client.query("select * from get_heads($1)", [squadId]);
   await dbManager.disconnect(client);
-  return rows;
+  return rows.map((row: any) => ({
+    id: row.id,
+    roleId: row.roleid,
+    squadId: row.squadid,
+    budget: row.budget,
+    startDate: row.startdate,
+    endDate: row.enddate,
+    roleName: row.rolename,
+  }));
 };
 
 const insert = async (head: INewHead) => {

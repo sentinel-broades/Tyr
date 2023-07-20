@@ -1,8 +1,7 @@
-interface INewPerson {
-  forename: string;
-  surname: string;
-  email: string;
-  roleId: number;
+import {IBasePerson} from "./IBasePerson";
+
+interface INewPerson extends IBasePerson {
+    roleId?: number;
 }
 
 export type { INewPerson };

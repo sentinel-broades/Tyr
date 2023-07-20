@@ -9,6 +9,9 @@ import {
   CreateSquadView,
   SquadListView,
   SquadDetailView,
+  CreateHeadView,
+  PersonListView,
+  CreatePersonView,
 } from '../views';
 
 const AppRoutes = () => {
@@ -22,6 +25,9 @@ const AppRoutes = () => {
       <Route path={'/squad/list'} element={<SquadListView />} />
       <Route path={'/squad/create'} element={<CreateSquadView />} />
       <Route path={'/squad/detail/:id'} element={<SquadDetailView />} />
+      <Route path={'/head/create/:squadId'} element={<CreateHeadView />} />
+      <Route path={'/person/list'} element={<PersonListView />} />
+      <Route path={'/person/create'} element={<CreatePersonView />} />
       <Route path={'*'} element={<NotFoundView />} />
     </Routes>
   );

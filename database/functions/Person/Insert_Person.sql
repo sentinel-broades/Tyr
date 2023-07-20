@@ -17,7 +17,7 @@ AS $$
         RETURNING id INTO newId;
 
         INSERT INTO personrole (id, personid, roleid, startdate)
-	    VALUES (nextval(''), newId, _roleid, CURRENT_DATE);
+	    VALUES (nextval('personrole_id_seq'), newId, _roleid, CURRENT_DATE);
 
 	    Return newId;
 

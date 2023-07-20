@@ -12,7 +12,7 @@ const RoleList = () => {
   const { onList, RoleState } = useRole();
 
   useEffect(() => {
-    onList && onList();
+    onList!();
   }, []);
 
   return (

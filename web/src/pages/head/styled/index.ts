@@ -1,0 +1,1 @@
+export { StyledCreateHeadEditor } from './StyledCreateHeadEditor';

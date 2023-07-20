@@ -8,14 +8,15 @@ interface Props {
   value: string;
   onChange: (key: string, value: any) => void;
   values: IOption[];
-  callback?: () => void;
+  editable: boolean;
+  callback?: (e: any) => void;
 }
 
 const FormSelect = (props: Props) => {
-  const { name, label, onChange, value, values, callback } = props;
+  const { name, label, onChange, value, values, editable, callback } = props;
 
   const onValueChanged = (e: any) => {
-    if (callback) callback();
+    if (callback) callback(e);
 
     onChange(name, e.target.value);
   };
@@ -28,8 +29,9 @@ const FormSelect = (props: Props) => {
         id={name}
         name={name}
         label={label}
-        value={value}
+        value={value ? value : ''}
         onChange={(e) => onValueChanged(e)}
+        readOnly={!editable}
       >
         {values.map((val, index) => (
           <MenuItem key={index} value={val.key}>

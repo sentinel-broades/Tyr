@@ -3,6 +3,8 @@ enum Control {
   Text,
   MultilineText,
   Switch,
+  Date,
+  Currency,
 }
 
-export { Control }
+export { Control };

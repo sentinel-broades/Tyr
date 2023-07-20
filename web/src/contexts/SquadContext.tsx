@@ -63,7 +63,7 @@ const SquadProvider = ({ children }: any) => {
   const value = {
     SquadState: squadState,
     onList: list,
-    onOptionsList: optionsList,
+    onDisciplineOptionsList: optionsList,
     onCreate: create,
     onLoad: load,
     onUpdate: update,

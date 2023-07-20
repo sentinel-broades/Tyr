@@ -8,7 +8,7 @@ interface DisciplineProps {
     disciplineList: IDiscipline[] | null;
   };
   onList?: () => Promise<IDiscipline[]>;
-  onOptionsList?: () => Promise<IOption[]>;
+  onDisciplineOptionsList?: () => Promise<IOption[]>;
   onCreate?: (discipline: INewDiscipline) => Promise<number>;
   onLoad?: (id: number) => void;
   onUpdate?: (discipline: IDiscipline) => void;
@@ -54,7 +54,7 @@ const DisciplineProvider = ({ children }: any) => {
   const value = {
     DisciplineState: disciplineState,
     onList: list,
-    onOptionsList: optionsList,
+    onDisciplineOptionsList: optionsList,
     onCreate: create,
     onLoad: load,
     onUpdate: update,

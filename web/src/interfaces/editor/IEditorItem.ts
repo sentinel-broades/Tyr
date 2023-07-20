@@ -7,6 +7,7 @@ interface IEditorItem {
   placeholder: string;
   options?: IOption[];
   control: Control;
+  callback?: (value: any) => void;
 }
 
 export type { IEditorItem };

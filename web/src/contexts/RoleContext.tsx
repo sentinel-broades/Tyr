@@ -1,12 +1,14 @@
 import { INewRole, IRole } from '../../../common/interfaces';
 import { createContext, useContext, useState } from 'react';
 import { apiGet, apiPost } from '../api';
+import { IOption } from '../interfaces/editor/IOption';
 
 interface RoleProps {
   RoleState?: {
     roleList: IRole[] | null;
   };
   onList?: () => Promise<void>;
+  onRoleOptionsList?: () => Promise<IOption[]>;
   onCreate?: (role: INewRole) => Promise<number>;
   onLoad?: (id: number) => void;
   onUpdate?: (role: IRole) => void;
@@ -29,6 +31,17 @@ const RoleProvider = ({ children }: any) => {
     });
   };
 
+  const optionsList = async (): Promise<IOption[]> => {
+    return apiGet('/roles').then((res) => {
+      return res.map((role: IRole) => {
+        return {
+          label: role.name,
+          key: role.id,
+        };
+      });
+    });
+  };
+
   const create = async (role: INewRole): Promise<number> => {
     return await apiPost('/role', role);
   };
@@ -40,6 +53,7 @@ const RoleProvider = ({ children }: any) => {
   const value = {
     RoleState: roleState,
     onList: list,
+    onRoleOptionsList: optionsList,
     onCreate: create,
     onLoad: load,
     onUpdate: update,

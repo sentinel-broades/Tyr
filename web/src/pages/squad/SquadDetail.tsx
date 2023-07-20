@@ -1,7 +1,23 @@
 import { StyledSquadDetail } from './styled';
+import { PageHeader, SquadDetailEditor } from '../../library';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useSquad } from '../../contexts';
 
 const SquadDetail = () => {
-  return <StyledSquadDetail>SquadDetail</StyledSquadDetail>;
+  const { id } = useParams();
+  const { SquadState, onLoad } = useSquad();
+
+  useEffect(() => {
+    if (id) onLoad!(parseInt(id));
+  }, []);
+
+  return (
+    <StyledSquadDetail>
+      <PageHeader title={'Squad Detail'} />
+      <SquadDetailEditor />
+    </StyledSquadDetail>
+  );
 };
 
 export { SquadDetail };

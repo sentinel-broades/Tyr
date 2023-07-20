@@ -12,9 +12,10 @@ const getAll = async () => {
 const getById = async (id: number) => {
   const client = await dbManager.connect();
   const { rows } = await client.query("select * from get_squad_byId($1)", [id]);
+
   await dbManager.disconnect(client);
 
-  if (rows.count !== 0) throw new Error("Squad not found");
+  if (rows.length !== 1) throw new Error("Squad not found");
 
   return rows[0];
 };

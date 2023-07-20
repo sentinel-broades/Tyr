@@ -6,7 +6,7 @@ const Sidebar = () => {
   const links: INavLink[] = [
     { route: '/discipline/list', title: 'Disciplines' },
     { route: '/role/list', title: 'Roles' },
-    { route: '/people/list', title: 'People' },
+    { route: '/person/list', title: 'People' },
     { route: '/squad/list', title: 'Squads' },
     { route: '/software/list', title: 'Software' },
   ];

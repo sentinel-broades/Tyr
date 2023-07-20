@@ -1,0 +1,1 @@
+export { CreateHeadView } from './CreateHeadView';

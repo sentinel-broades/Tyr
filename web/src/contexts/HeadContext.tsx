@@ -7,7 +7,7 @@ interface HeadProps {
   HeadState?: {
     headList: IHead[] | null;
   };
-  onList?: () => Promise<IHead[]>;
+  onList?: (squadId: number) => Promise<IHead[]>;
   onOptionsList?: () => Promise<IOption[]>;
   onCreate?: (head: IHead) => Promise<number>;
   onLoad?: (id: number) => void;
@@ -27,8 +27,8 @@ const HeadProvider = ({ children }: any) => {
     headList: null,
   });
 
-  const list = async () => {
-    return apiGet('/heads').then((res) => {
+  const list = async (squadId: number) => {
+    return apiGet(`/heads/${squadId}`).then((res) => {
       setHeadState({ ...headState, headList: res });
       return res;
     });
@@ -56,7 +56,7 @@ const HeadProvider = ({ children }: any) => {
   const value = {
     HeadState: headState,
     onList: list,
-    onOptionsList: optionsList,
+    onDisciplineOptionsList: optionsList,
     onCreate: create,
     onLoad: load,
     onUpdate: update,

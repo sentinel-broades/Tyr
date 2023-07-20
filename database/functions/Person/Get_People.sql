@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION  GET_PEOPLE()
     AS $$
 
     begin
-    SELECT * FROM person;
+    RETURN QUERY( SELECT * FROM person);
     end
 
     $$

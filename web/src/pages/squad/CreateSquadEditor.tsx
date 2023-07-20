@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSquad } from '../../contexts';
 import { INewSquad } from '../../../../common/interfaces';
 import { CreateSquadEditorConfig } from '../../editors';
+import { EditorMode } from '../../enums';
 
 const CreateSquadEditor = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const CreateSquadEditor = () => {
         object={squad}
         onSave={create}
         items={CreateSquadEditorConfig}
+        mode={EditorMode.Edit}
       />
     </StyledCreateSquadEditor>
   );

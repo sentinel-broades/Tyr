@@ -5,7 +5,7 @@ const errorService = require("../../services/ErrorService");
 
 const router = express.Router();
 
-router.get("/squad/:squadId", async (req: Request, res: Response) => {
+router.get("/api/squad/:squadId", async (req: Request, res: Response) => {
   try {
     const { squadId } = req.params;
     const squad = await squadService.getById(parseInt(squadId));

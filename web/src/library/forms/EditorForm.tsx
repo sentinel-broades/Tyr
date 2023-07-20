@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import { StyledEditorForm } from './styled';
-import { Control } from '../../enums';
-import { FormText } from './FormText';
+import { Control, EditorMode } from '../../enums';
+import { FormCurrency, FormDatePicker, FormSelect, FormText } from './';
 import { IEditorItem } from '../../interfaces/editor';
-import { FormSelect } from './FormSelect';
 
 interface Props {
   object: any;
   onSave: (object: any) => void;
   items: IEditorItem[];
+  mode: EditorMode;
 }
 
 const EditorForm = (props: Props) => {
-  const { object, onSave, items } = props;
+  const { object, onSave, items, mode } = props;
   const [obj, setObj] = useState(object);
+  const [formMode, setFormMode] = useState(mode);
 
   const onObjChange = (key: string, value: any) => {
     setObj({ ...obj, [key]: value });
@@ -28,7 +29,7 @@ const EditorForm = (props: Props) => {
               <FormText
                 label={item.label}
                 name={item.key}
-                editable={true}
+                editable={formMode === EditorMode.Edit}
                 key={item.key}
                 value={obj[item.key]}
                 placeholder={item.placeholder}
@@ -44,7 +45,34 @@ const EditorForm = (props: Props) => {
                 label={item.label}
                 value={obj[item.key]}
                 onChange={onObjChange}
+                editable={formMode === EditorMode.Edit}
                 values={item.options!}
+                callback={item.callback}
+              />
+            );
+
+          case Control.Currency:
+            return (
+              <FormCurrency
+                label={item.label}
+                name={item.key}
+                editable={formMode === EditorMode.Edit}
+                key={item.key}
+                value={obj[item.key]}
+                placeholder={item.placeholder}
+                onChange={onObjChange}
+              />
+            );
+
+          case Control.Date:
+            return (
+              <FormDatePicker
+                key={item.key}
+                name={item.key}
+                label={item.label}
+                value={obj[item.key]}
+                onChange={onObjChange}
+                editable={formMode === EditorMode.Edit}
               />
             );
 
@@ -53,7 +81,11 @@ const EditorForm = (props: Props) => {
         }
       })}
 
-      <button onClick={() => onSave(obj)}>Save</button>
+      {formMode === EditorMode.Edit ? (
+        <button onClick={() => onSave(obj)}>Save</button>
+      ) : (
+        <button onClick={() => setFormMode(EditorMode.Edit)}>Edit</button>
+      )}
     </StyledEditorForm>
   );
 };
