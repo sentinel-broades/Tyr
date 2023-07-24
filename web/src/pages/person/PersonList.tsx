@@ -29,6 +29,7 @@ const PersonList = () => {
                 key={person.id}
                 id={person.id}
                 title={`${person.forename} ${person.surname}`}
+                viewPrefix={'person'}
               />
             );
           })}

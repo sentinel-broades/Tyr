@@ -3,6 +3,6 @@ import styled from 'styled-components';
 import { Theme } from '../../../themes/Theme';
 
 const StyledNavIcon = styled(Tooltip)<{ theme: Theme }>`
-  color: ${(props) => props.theme.fontColPrimary} !important;
+  color: ${(props) => props.theme.fontColSecondary} !important;
 `;
 export { StyledNavIcon };

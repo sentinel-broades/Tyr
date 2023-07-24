@@ -1,4 +1,4 @@
-import { INewRole } from "../../../common/interfaces";
+import { INewRole } from "tyr-common";
 
 const dbManage = require("../database/dbManager");
 

@@ -23,6 +23,7 @@
     "express-validator": "^7.0.1",
     "mongoose": "^7.3.2",
     "pg": "^8.11.1",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "tyr-common": "^1.0.12"
   }
 }

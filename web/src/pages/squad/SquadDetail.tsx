@@ -1,5 +1,5 @@
 import { StyledSquadDetail } from './styled';
-import { PageHeader, SquadDetailEditor } from '../../library';
+import { PageHeader, SquadDetailEditor, SquadHeads } from '../../library';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useSquad } from '../../contexts';
@@ -16,6 +16,8 @@ const SquadDetail = () => {
     <StyledSquadDetail>
       <PageHeader title={'Squad Detail'} />
       <SquadDetailEditor />
+      <hr />
+      <SquadHeads />
     </StyledSquadDetail>
   );
 };

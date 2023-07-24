@@ -2,7 +2,7 @@ import { StyledCreateSquadEditor } from './styled';
 import { EditorForm, PageHeader } from '../../library';
 import { useNavigate } from 'react-router-dom';
 import { useSquad } from '../../contexts';
-import { INewSquad } from '../../../../common/interfaces';
+import { INewSquad } from 'tyr-common';
 import { CreateSquadEditorConfig } from '../../editors';
 import { EditorMode } from '../../enums';
 

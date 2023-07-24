@@ -1,6 +1,6 @@
 import { StyledCreateRoleEditor } from './styled';
 import { useNavigate } from 'react-router-dom';
-import { INewRole } from '../../../../common/interfaces';
+import { INewRole } from 'tyr-common';
 import { useDiscipline, useRole } from '../../contexts';
 import { EditorForm, PageHeader } from '../../library';
 import { useEffect, useState } from 'react';

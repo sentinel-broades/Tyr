@@ -1,4 +1,4 @@
-import { INewRole, IRole } from '../../../common/interfaces';
+import { INewRole, IRole } from 'tyr-common';
 import { createContext, useContext, useState } from 'react';
 import { apiGet, apiPost } from '../api';
 import { IOption } from '../interfaces/editor/IOption';

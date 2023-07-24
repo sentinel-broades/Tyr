@@ -1,4 +1,4 @@
-import { IDiscipline, INewDiscipline } from '../../../common/interfaces';
+import { IDiscipline, INewDiscipline } from 'tyr-common';
 import { createContext, useContext, useState } from 'react';
 import { apiGet, apiPost } from '../api';
 import { IOption } from '../interfaces/editor/IOption';

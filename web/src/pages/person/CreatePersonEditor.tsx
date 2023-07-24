@@ -1,7 +1,7 @@
 import { StyledCreatePersonEditor } from './styled';
 import { useNavigate } from 'react-router-dom';
 import { usePerson, useRole } from '../../contexts';
-import { INewPerson } from '../../../../common/interfaces';
+import { INewPerson } from 'tyr-common';
 import { EditorForm, PageHeader } from '../../library';
 import { CreatePersonEditorConfig } from '../../editors';
 import { EditorMode } from '../../enums';

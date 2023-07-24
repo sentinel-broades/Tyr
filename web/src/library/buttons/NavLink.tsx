@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { StyledNavLink } from './styled';
-import { Button } from '@mui/material';
 
 interface Props {
   route: string;

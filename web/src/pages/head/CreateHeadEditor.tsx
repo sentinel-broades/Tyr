@@ -1,6 +1,6 @@
 import { StyledCreateHeadEditor } from './styled';
 import { EditorForm, PageHeader } from '../../library';
-import { INewHead } from '../../../../common/interfaces';
+import { INewHead } from 'tyr-common';
 import { IEditorItem } from '../../interfaces/editor';
 import { useEffect, useState } from 'react';
 import { CreateHeadEditorConfig } from '../../editors';

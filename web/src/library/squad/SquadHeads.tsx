@@ -1,13 +1,14 @@
 import { StyledSquadHeads } from './styled';
 import { LinkButton } from '../buttons';
-import { useHead, useSquad } from '../../contexts';
+import { useHead, useHeadPerson, useSquad } from '../../contexts';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { CardContainer, HeadCard } from '../cards';
+import { SubHeader } from '../misc';
 
 const SquadHeads = () => {
   const { SquadState } = useSquad();
-  const { HeadState, onList } = useHead();
+  const { HeadPersonState, onList } = useHeadPerson();
   const { id } = useParams();
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const SquadHeads = () => {
 
   return (
     <StyledSquadHeads>
-      <h1>SquadHeads</h1>
+      <SubHeader title={'Squad Heads'} />
       {SquadState!.squad && (
         <LinkButton
           route={`/head/create/${SquadState!.squad.id}`}
@@ -24,10 +25,10 @@ const SquadHeads = () => {
         />
       )}
       <CardContainer>
-        {HeadState &&
-          HeadState.headList &&
-          HeadState.headList.map((head) => {
-            return <HeadCard key={head.id} head={head} />;
+        {HeadPersonState &&
+          HeadPersonState.headPersonList &&
+          HeadPersonState.headPersonList.map((head) => {
+            return <HeadCard key={head.headId} head={head} />;
           })}
         ;
       </CardContainer>

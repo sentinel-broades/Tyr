@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 
-const squadService = require("../../services/SquadService");
+const squadService = require("../../services/squad/SquadService");
 const errorService = require("../../services/ErrorService");
 
 const router = express.Router();

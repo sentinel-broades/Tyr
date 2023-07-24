@@ -3,11 +3,15 @@ interface Theme {
   bgColPrimary: string;
   bgColSecondary: string;
   bgColTertiary: string;
+  bgColSuccess: string;
+  bgColError: string;
+  bgColWarning: string;
 
   fontColPrimary: string;
   fontColSecondary: string;
   fontColTertiary: string;
 
+  fontSzXSmall: string;
   fontSzSmall: string;
   fontSzMedium: string;
   fontSzLarge: string;

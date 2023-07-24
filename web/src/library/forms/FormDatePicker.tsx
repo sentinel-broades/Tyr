@@ -18,7 +18,7 @@ const FormDatePicker = (props: Props) => {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <StyledFormDatePicker
         label={label}
-        value={value}
+        value={value ? value : null}
         onChange={(newValue) => {
           onChange(name, newValue);
         }}

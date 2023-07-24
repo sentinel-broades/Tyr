@@ -1,4 +1,4 @@
-export { personRoutes } from "./people";
+export { personRoutes } from "./person";
 export { disciplineRoutes } from "./discipline";
 export { roleRoutes } from "./role";
 export { squadRoutes } from "./squad";

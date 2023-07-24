@@ -1,4 +1,4 @@
-import { INewRole } from "../../../common/interfaces";
+import { INewRole } from "tyr-common";
 
 const roleRepo = require("../repositories/RoleRepository");
 

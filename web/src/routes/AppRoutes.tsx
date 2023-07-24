@@ -12,6 +12,10 @@ import {
   CreateHeadView,
   PersonListView,
   CreatePersonView,
+  PersonDetailView,
+  CreatePersonRoleView,
+  CreatePersonSalaryView,
+  CreateHeadPersonView,
 } from '../views';
 
 const AppRoutes = () => {
@@ -28,6 +32,19 @@ const AppRoutes = () => {
       <Route path={'/head/create/:squadId'} element={<CreateHeadView />} />
       <Route path={'/person/list'} element={<PersonListView />} />
       <Route path={'/person/create'} element={<CreatePersonView />} />
+      <Route path={'/person/detail/:id'} element={<PersonDetailView />} />
+      <Route
+        path={'/person/role/create/:personId'}
+        element={<CreatePersonRoleView />}
+      />
+      <Route
+        path={'/person/salary/create/:personId'}
+        element={<CreatePersonSalaryView />}
+      />
+      <Route
+        path={'/head/person/create/:squadId/:headId'}
+        element={<CreateHeadPersonView />}
+      />
       <Route path={'*'} element={<NotFoundView />} />
     </Routes>
   );

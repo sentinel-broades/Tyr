@@ -11,7 +11,6 @@ interface Props {
 
 const FormText = (props: Props) => {
   const { placeholder, onChange, editable, value, name, label } = props;
-
   return (
     <StyledFormText
       id={name}

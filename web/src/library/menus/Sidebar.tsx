@@ -1,5 +1,5 @@
 import { StyledSidebar } from './styled';
-import { INavLink } from '../../../../common/interfaces';
+import { INavLink } from 'tyr-common';
 import { NavLink } from '../';
 
 const Sidebar = () => {

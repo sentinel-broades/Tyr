@@ -1,4 +1,4 @@
-import { IHead, INewHead } from "../../../common/interfaces";
+import { IHead, INewHead } from "tyr-common";
 
 const dbManager = require("../database/dbManager");
 

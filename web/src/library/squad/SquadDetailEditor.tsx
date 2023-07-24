@@ -2,9 +2,8 @@ import { StyledSquadDetailEditor } from './styled';
 import { useSquad } from '../../contexts';
 import { CreateSquadEditorConfig } from '../../editors';
 import { EditorForm } from '../forms';
-import { ISquad } from '../../../../common/interfaces';
+import { ISquad } from 'tyr-common';
 import { EditorMode } from '../../enums';
-import { SquadHeads } from './SquadHeads';
 import { Loading } from '../misc';
 
 const SquadDetailEditor = () => {
@@ -24,10 +23,6 @@ const SquadDetailEditor = () => {
       ) : (
         <Loading />
       )}
-
-      <hr />
-
-      <SquadHeads />
     </StyledSquadDetailEditor>
   );
 };

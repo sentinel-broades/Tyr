@@ -1,12 +1,12 @@
-import { HeadProvider, SquadProvider } from '../../contexts';
+import { HeadPersonProvider, SquadProvider } from '../../contexts';
 import { SquadDetail } from '../../pages';
 
 const SquadDetailView = () => {
   return (
     <SquadProvider>
-      <HeadProvider>
+      <HeadPersonProvider>
         <SquadDetail />
-      </HeadProvider>
+      </HeadPersonProvider>
     </SquadProvider>
   );
 };

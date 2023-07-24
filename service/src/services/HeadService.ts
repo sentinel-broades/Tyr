@@ -1,4 +1,4 @@
-import { INewHead } from "../../../common/interfaces";
+import { INewHead } from "tyr-common";
 
 const headRepo = require("../repositories/HeadRepository");
 

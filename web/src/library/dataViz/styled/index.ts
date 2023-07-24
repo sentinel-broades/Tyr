@@ -1,0 +1,1 @@
+export { StyledDataTable } from './StyledDataTable';

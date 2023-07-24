@@ -1,4 +1,4 @@
-import { INewDiscipline } from "../../../common/interfaces";
+import { INewDiscipline } from "tyr-common";
 
 const dbManager = require("../database/dbManager");
 

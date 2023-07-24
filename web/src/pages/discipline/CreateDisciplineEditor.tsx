@@ -2,7 +2,7 @@ import { StyledCreateDisciplineEditor } from './styled';
 import { EditorForm, PageHeader } from '../../library';
 import { CreateDisciplineEditorConfig } from '../../editors';
 import { useDiscipline } from '../../contexts';
-import { INewDiscipline } from '../../../../common/interfaces';
+import { INewDiscipline } from 'tyr-common';
 import { useNavigate } from 'react-router-dom';
 import { EditorMode } from '../../enums';
 
